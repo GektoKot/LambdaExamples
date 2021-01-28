@@ -1,5 +1,6 @@
 
 public class Main {
+    static int staticInt = 0;
 
     public static String methodWithLambda(FunctionalInterfaceGeneric<String> fig, String str) {
      return fig.function(str);
@@ -51,7 +52,7 @@ public class Main {
         ////////////////
         Double[] val = new Double []{1d,1d,2d,3d,6d,4d};
         Double[] val0 = new Double [0];
-        FunctionalInterfaceGenericArr figarr = (arr) -> {
+        FunctionalInterfaceGenericArr<Double> figarr = (arr) -> {
             if (arr.length == 0) {
                 throw new EmptyArrayException();
             }
@@ -67,6 +68,15 @@ public class Main {
         } catch (EmptyArrayException e) {
             System.out.println(e.getMessage());
         }
+        ////////////
+        int num = 10;
+        FunctionalInterfaceOneParam fiop1 = n -> {
+            n += num;
+            staticInt = 10;
+//            num++; Нельзя менять локальные переменные таким макаром!
+            return n;
+        };
+        /////////////
 
     }
 }

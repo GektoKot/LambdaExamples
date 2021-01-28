@@ -1,4 +1,4 @@
 
-public interface FunctionalInterfaceGenericArr{
-Double func(Double[] t) throws EmptyArrayException;
+public interface FunctionalInterfaceGenericArr<T>{
+T func(T[] t) throws EmptyArrayException;
 }
