@@ -1,5 +1,10 @@
 
 public class Main {
+
+    public static String methodWithLambda(FunctionalInterfaceGeneric<String> fig, String str) {
+     return fig.function(str);
+    }
+
     public static void main(String[] args) {
         FunctionalInterfaceOneParam fi;
         FunctionalInterfaceOneParam fi1;
@@ -39,6 +44,10 @@ public class Main {
         };
         System.out.println(figStr.function("abvgd"));
         ////////////////
+        System.out.println(methodWithLambda(str -> {
+            StringBuilder sb = new StringBuilder(str);
+            return sb.reverse().toString();
+        }, "АбыРВалГ"));
 
     }
 }
