@@ -5,7 +5,7 @@ public class Main {
      return fig.function(str);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         FunctionalInterfaceOneParam fi;
         FunctionalInterfaceOneParam fi1;
         fi = n -> n * 5;
@@ -48,6 +48,25 @@ public class Main {
             StringBuilder sb = new StringBuilder(str);
             return sb.reverse().toString();
         }, "АбыРВалГ"));
+        ////////////////
+        Double[] val = new Double []{1d,1d,2d,3d,6d,4d};
+        Double[] val0 = new Double [0];
+        FunctionalInterfaceGenericArr figarr = (arr) -> {
+            if (arr.length == 0) {
+                throw new EmptyArrayException();
+            }
+            Double res = 0d;
+            for(Double d : arr){
+                res += d;
+            }
+            return res;
+        };
+        try {
+            System.out.println(figarr.func(val));
+            System.out.println(figarr.func(val0));
+        } catch (EmptyArrayException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 }
