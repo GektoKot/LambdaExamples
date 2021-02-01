@@ -1,3 +1,4 @@
+import java.util.function.*;
 
 public class Main {
     static int staticInt = 0;
@@ -7,6 +8,7 @@ public class Main {
     }
 
     public static void main(String[] args)  {
+
         FunctionalInterfaceOneParam fi;
         FunctionalInterfaceOneParam fi1;
         fi = n -> n * 5;
@@ -77,6 +79,14 @@ public class Main {
             return n;
         };
         /////////////
+        Function<Integer, Integer> function = integer -> {
+            int res = 1;
+            for (int i = 1; i <= integer; i++) {
+                res *= i;
+            }
+            return res;
+        };
+        System.out.println(function.apply(5));
 
     }
 }
